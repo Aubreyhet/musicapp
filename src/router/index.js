@@ -35,7 +35,10 @@ const routes = [
     },
     {
         path: '/play',
-        component: Play
+        component: Play,
+        // query:{
+        //     id
+        // }
     }
 ]
 

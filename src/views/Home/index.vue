@@ -14,18 +14,23 @@
       </van-row>
 
       <p class="title">最新音乐</p>
-      <van-cell center :title="obj.name" :label='obj.song.artists[0].name + " - " +obj.name'  v-for="obj in newSongs" :key="obj.id">
-          <template #right-icon>
-            <van-icon name="play-circle-o" size=".6rem"/>
-          </template>
-      </van-cell>
+      <SongItem 
+      v-for="obj in newSongs"
+      :key="obj.id"
+      :name="obj.name"
+      :author="obj.song.artists[0].name"
+      :id="obj.id"
+      ></SongItem>
   </div>
 </template>
 
 <script>
 import { recommendMusicAPI, newMusicAPI } from "../../api/index";
+import SongItem from '../../components/SongItem.vue';
 export default {
-
+  components: {
+    SongItem
+  },
   data(){
     return {
       reLists: [],

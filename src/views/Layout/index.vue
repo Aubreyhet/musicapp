@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <van-nav-bar :title="activeTitle"/>
+    <van-nav-bar :title="activeTitle" fixed/>
       <router-view></router-view>
       <van-tabbar route>
         <van-tabbar-item replace to="/layout/home" icon="home-o">首页</van-tabbar-item>
@@ -27,6 +27,6 @@ export default {
 
 <style scoped>
     .main {
-    padding-bottom: 50px;
+    padding: 50px  10px;
     }
 </style>
