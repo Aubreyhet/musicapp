@@ -1,6 +1,5 @@
 <template>
-  <div class="play">
-    <h1>123</h1>
+  <div class="play" @click="audioStart">
     <!-- 模糊背景(靠样式设置), 固定定位 -->
     <div
       class="song-bg"
@@ -36,7 +35,7 @@
         </div>
       </div>
       <!-- 播放按钮 -->
-      <div class="start-box" @click="audioStart">
+      <div class="start-box">
         <span class="song-start" v-show="!playState"></span>
       </div>
       <!-- 播放歌词容器 -->
@@ -108,9 +107,9 @@ export default {
       // 可以看network观察歌词数据是一个大字符串, 进行拆分.
       let reg = /\[.+?\]/g // 
       let timeArr = lyricStr.match(reg) // 匹配所有[]字符串以及里面的一切内容, 返回数组
-      console.log(timeArr); // ["[00:00.000]", "[00:01.000]", ......]
+      // console.log(timeArr); // ["[00:00.000]", "[00:01.000]", ......]
       let contentArr = lyricStr.split(/\[.+?\]/).slice(1) // 按照[]拆分歌词字符串, 返回一个数组(下标为0位置元素不要,后面的留下所以截取)
-      console.log(contentArr);
+      // console.log(contentArr);
       let lyricObj = {} // 保存歌词的对象, key是秒, value是显示的歌词
       timeArr.forEach((item, index) => {
         // 拆分[00:00.000]这个格式字符串, 把分钟数字取出, 转换成秒
@@ -121,7 +120,7 @@ export default {
         lyricObj[ms + Number(ss)] = contentArr[index]
       })
       // 返回得到的歌词对象(可以打印看看)
-      console.log(lyricObj);
+      // console.log(lyricObj);
       return lyricObj
     },
     audioStart() { // 播放按钮 - 点击事件
@@ -149,7 +148,7 @@ export default {
   mounted() {
     this.getSong()
     this.showLyric()
-    console.log(this.$route.query.id);
+    // console.log(this.$route.query.id);
   }
 }
 </script>

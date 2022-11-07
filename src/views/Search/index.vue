@@ -7,7 +7,7 @@
       placeholder="请输入搜索关键词"
     />
     <div class="search_wrap" v-if="searchRes.length < 1">
-      <p class=".hot_title">热门搜索</p>
+      <p class="hot_title">热门搜索</p>
       <div class="hot_name_wrap">
         <span
           class="hot_item"
@@ -20,7 +20,7 @@
     </div>
 
     <div class="search_wrap" v-else>
-      <p class=".hot_title">最佳匹配</p>
+      <p class="hot_title">最佳匹配</p>
       <van-list
         v-model="loading"
         :finished="finished"
@@ -75,6 +75,10 @@ export default {
         offset: (this.page - 1)*20
       })
     },
+    // clearfn() {
+    //   console.log(this.value)
+    //   this.value = ''
+    // },
     //点击热搜词发送请求 加载数据
     async spanFn(val){
       this.page = 1
@@ -108,9 +112,6 @@ export default {
         }, 900)
 
     },
-
-
-
 
     //上拉加载更多数据
     async onLoad(){
@@ -161,5 +162,8 @@ export default {
 }
 .van-cell {
   border-bottom: 1px solid #ccc;
+}
+.van-cell--borderless{
+  border: none;
 }
 </style>

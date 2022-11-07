@@ -5,6 +5,9 @@ import Layout from '@/views/Layout'
 import Home from '@/views/Home'
 import Search from '@/views/Search'
 import Play from '@/views/Play'
+import Hotlist from '@/views/Hotlist'
+import Songsheet from '@/views/Songsheet'
+
 
 Vue.use(VueRouter)
 const routes = [
@@ -30,6 +33,13 @@ const routes = [
                 meta: {
                     title: "搜索"
                 }
+            },
+            {
+                path: 'hotlist',
+                component: Hotlist,
+                meta: {
+                    title: "热歌榜"
+                }
             }
         ]
     },
@@ -40,10 +50,16 @@ const routes = [
         //     id
         // }
     }
+    ,
+    {
+        path: '/songsheet',
+        component: Songsheet
+    }
 ]
 
 const router = new VueRouter({
-    routes
+    routes,
+    mode: 'history'
 })
 
 export default router
